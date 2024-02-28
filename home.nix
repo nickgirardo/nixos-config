@@ -78,6 +78,12 @@
     };
   };
 
+  # xfce keyboard shortcuts
+  # There does exist a package for configuring xfconf stuff but it doesn't have
+  # any examples for keyboard shortcuts so I went with this approach
+  home.file.".config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml".source =
+    ./xfconf/xfce4-keyboard-shortcuts.xml;
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
