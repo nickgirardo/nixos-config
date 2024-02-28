@@ -66,6 +66,18 @@
     # EDITOR = "emacs";
   };
 
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      # git aliases
+      "gs" = "git status";
+      "gd" = "git diff -D";
+      "gds" = "git diff -D --staged";
+      "gdl" = "git diff HEAD~ HEAD";
+      "gl" = "git -c color.ui=always log --oneline | head -20";
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
