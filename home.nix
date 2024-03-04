@@ -49,6 +49,11 @@
     # have any examples for keyboard shortcuts so I went with this approach
     ".config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml".source =
       ./xfconf/xfce4-keyboard-shortcuts.xml;
+    ".inputrc".text = ''
+      $include /etc/inputrc
+      set completion-ignore-case on
+      set show-all-if-ambiguous on
+    '';
   };
 
   # Home Manager can also manage your environment variables through
