@@ -3,6 +3,7 @@
 {
   imports = [
     ./app/git.nix
+    ./app/emacs/emacs.nix
     ./app/firefox.nix
     ./app/gnome_dconf.nix
   ];
