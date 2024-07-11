@@ -29,6 +29,11 @@
       edge-tiling = true;
     };
 
+    # Limit to one workspace, I don't find them useful
+    "org/gnome/desktop/wm/preferences" = {
+      num-workspaces = 1;
+    };
+
     # Switch windows with <Alt>Tab, switch apps with <Super>Tab
     "org/gnome/desktop/wm/keybindings" = {
       switch-windows = [ "<Alt>Tab" ];
