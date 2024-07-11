@@ -2,8 +2,12 @@
 
 {
   imports = [
+    ./app/git.nix
     ./app/firefox.nix
+    ./app/gnome_dconf.nix
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -17,13 +21,14 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
+    # # I'm keeping this around as a quick sanity check that home.nix is active
     pkgs.hello
 
     pkgs.discord
@@ -44,11 +49,6 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # xfce keyboard shortcuts
-    # There does exist a package for configuring xfconf stuff but it doesn't
-    # have any examples for keyboard shortcuts so I went with this approach
-    ".config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml".source =
-      ./xfconf/xfce4-keyboard-shortcuts.xml;
     ".inputrc".text = ''
       $include /etc/inputrc
       set completion-ignore-case on

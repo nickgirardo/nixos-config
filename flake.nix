@@ -2,10 +2,10 @@
   description = "My NixOS Configuration :-)";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-23.11";
+    nixpkgs.url = "nixpkgs/nixos-24.05";
     nur.url = "github:nix-community/NUR/master";
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -18,12 +18,8 @@
   in {
     nixosConfigurations.nixos = lib.nixosSystem {
       inherit system;
+      specialArgs = { inherit inputs; };
       modules = [ ./configuration.nix ];
-    };
-    homeConfigurations.nick = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = [ ./home.nix ];
-      extraSpecialArgs = { inherit inputs; };
     };
   };
 }

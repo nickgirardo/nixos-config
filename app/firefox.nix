@@ -23,10 +23,12 @@
 
         "browser.contentblocking.category" = "standard";
         "browser.download.panel.shown" = true;
-        "browser.newtappage.activity-stream.feeds.section.topstories" = false;
-        "browser.newtappage.activity-stream.feeds.system.topstories" = false;
-        "browser.newtappage.activity-stream.feeds.system.topsites" = false;
-        "browser.newtappage.activity-stream.feeds.topsites" = false;
+        "browser.newtabpage.activity-stream.showSponsored" = false;
+        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+        "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+        "browser.newtabpage.activity-stream.feeds.system.topstories" = false;
+        "browser.newtabpage.activity-stream.feeds.system.topsites" = false;
+        "browser.newtabpage.activity-stream.feeds.topsites" = false;
         "browser.toolbars.bookmarks.visibility" = "never";
 
         "browser.urlbar.showSearchSuggestionsFirst" = false;
@@ -42,7 +44,7 @@
 
         "dom.security.https_only_mode" = true;
 
-"extensions.pocket.enabled" = false;
+        "extensions.pocket.enabled" = false;
 
         # WebGPU isn't supported on linux... but when it is I'll be ready!
         "dom.webgpu.enabled" = true;
