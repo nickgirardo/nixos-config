@@ -32,6 +32,8 @@
     # # I'm keeping this around as a quick sanity check that home.nix is active
     pkgs.hello
 
+    pkgs.thunderbird
+
     pkgs.discord
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
