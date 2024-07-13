@@ -2,5 +2,9 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(require 'evil)
+(setq undo-tree-auto-save-history nil)
+(global-undo-tree-mode)
+
+
+(setq evil-undo-system 'undo-tree)
 (evil-mode 1)

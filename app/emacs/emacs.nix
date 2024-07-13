@@ -11,6 +11,7 @@
     extraPackages = epkgs: [
       epkgs.evil
       epkgs.nix-mode
+      epkgs.undo-tree
     ];
   };
 }
