@@ -57,7 +57,18 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  services.gnome.games.enable = true;
+  # Gnome baloney I don't want to install
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+  ]) ++ (with pkgs.gnome; [
+    gnome-music
+    gnome-characters
+    epiphany
+    geary
+    evince
+    totem
+  ]);
 
   # Configure keymap in X11
   # This isn't used once gnome is completely set up
