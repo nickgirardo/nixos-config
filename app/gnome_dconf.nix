@@ -53,11 +53,11 @@
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
       ];
     };
 
     # <Super> + Key to open commonly used applications
-    # For now just <Super>t to open a terminal, <Super>f to open firefox
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "Open Terminal";
       command = "kgx";
@@ -67,6 +67,11 @@
       name = "Open Firefox";
       command = "firefox";
       binding = "<Super>f";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+      name = "Open Emacs";
+      command = "emacs";
+      binding = "<Super>e";
     };
   };
 }
