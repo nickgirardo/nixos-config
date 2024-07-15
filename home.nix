@@ -71,7 +71,7 @@
   #  /etc/profiles/per-user/nick/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "emacs";
   };
 
   programs.bash = {
