@@ -110,7 +110,7 @@
   users.users.nick = {
     isNormalUser = true;
     description = "Nick";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
     hashedPassword = "$y$j9T$GHYOqfKwIO6pQ3YE9ystK.$KRk/16.oJ5St/ZG8omYseq5k2zgkUo4EqVwjxdW4c02";
     packages = with pkgs; [
     #  thunderbird
