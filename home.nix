@@ -72,6 +72,8 @@
   #
   home.sessionVariables = {
     EDITOR = "emacs";
+    # Most apps should find default browser with xdg (configured below) but some use this envvar
+    DEFAULT_BROWSER = "firefox";
   };
 
   programs.bash = {
@@ -83,6 +85,27 @@
       "gds" = "git diff -D --staged";
       "gdl" = "git diff HEAD~ HEAD";
       "gl" = "git -c color.ui=always log --oneline | head -20";
+    };
+  };
+
+  # Set default programs for xdg respecting apps
+  xdg.mimeApps = {
+    enable = true;
+
+    defaultApplications = {
+      # Web related mime types
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+
+      # Use firefox as my pdf viewer
+      "application/pdf" = "firefox.desktop";
+
+      # Email related mime types
+      "x-scheme-handler/mailto"="thunderbird.desktop";
+      "message/rfc822"="thunderbird.desktop";
+      "x-scheme-handler/mid"="thunderbird.desktop";
     };
   };
 
