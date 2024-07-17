@@ -12,6 +12,7 @@
       epkgs.evil
       epkgs.nix-mode
       epkgs.undo-tree
+      epkgs.key-chord
     ];
   };
 }
