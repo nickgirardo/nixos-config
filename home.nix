@@ -89,6 +89,7 @@
       "gds" = "git diff -D --staged";
       "gdl" = "git diff HEAD~ HEAD";
       "gl" = "git -c color.ui=always log --oneline | head -20";
+      "swinix" = "sudo nixos-rebuild switch --flake .";
     };
   };
 
