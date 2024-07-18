@@ -2,6 +2,10 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+; Set global directory for backup files so as to not dirty project directories
+(setq backup-directory-alist `(("." . "~/.saves")))
+(setq backup-by-copying t)
+
 (evil-mode 1)
 
 ; Use undo tree for undo history
