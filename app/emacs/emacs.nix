@@ -13,6 +13,7 @@
       epkgs.nix-mode
       epkgs.undo-tree
       epkgs.key-chord
+      epkgs.git-gutter
     ];
   };
 }
