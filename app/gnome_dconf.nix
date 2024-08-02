@@ -18,10 +18,21 @@
       xkb-options = ["terminate:ctrl_alt_bksp" "caps:ctrl_modifier"];
     };
 
-    # This could be used to show gnome's activity display by moving a mouse to the top left corner
-    # I see no need for this functionality so I've disabled it
     "org/gnome/desktop/interface" = {
+      # This could be used to show gnome's activity display by moving a mouse to the top left corner
+      # I see no need for this functionality so I've disabled it
       enable-hot-corners = false;
+      # Prefer 12h clocks over 24h clocks
+      # Also setting "org/gtk/settings/file-chooser/clock-format"
+      clock-format = "12h";
+      # List the day of the week along with the date
+      clock-show-weekday = true;
+    };
+
+    "org/gtk/settings/file-chooser" = {
+      # Prefer 12h clocks over 24h clocks
+      # Also setting "org/gnome/desktop/interface/clock-format"
+      clock-format = "12h";
     };
 
     # Allows moving windows in a tiling manner with <Super> and a direction
