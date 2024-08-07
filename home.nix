@@ -2,8 +2,13 @@
 
 {
   imports = [
+    ./app/git.nix
+    ./app/emacs/emacs.nix
     ./app/firefox.nix
+    ./app/gnome_dconf.nix
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -17,16 +22,23 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
+    # # I'm keeping this around as a quick sanity check that home.nix is active
     pkgs.hello
 
+    pkgs.thunderbird
+
+    pkgs.chromium
+
     pkgs.discord
+
+    pkgs.slack
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -44,11 +56,6 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # xfce keyboard shortcuts
-    # There does exist a package for configuring xfconf stuff but it doesn't
-    # have any examples for keyboard shortcuts so I went with this approach
-    ".config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml".source =
-      ./xfconf/xfce4-keyboard-shortcuts.xml;
     ".inputrc".text = ''
       $include /etc/inputrc
       set completion-ignore-case on
@@ -68,7 +75,9 @@
   #  /etc/profiles/per-user/nick/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "emacs";
+    # Most apps should find default browser with xdg (configured below) but some use this envvar
+    DEFAULT_BROWSER = "firefox";
   };
 
   programs.bash = {
@@ -80,6 +89,28 @@
       "gds" = "git diff -D --staged";
       "gdl" = "git diff HEAD~ HEAD";
       "gl" = "git -c color.ui=always log --oneline | head -20";
+      "swinix" = "sudo nixos-rebuild switch --flake .";
+    };
+  };
+
+  # Set default programs for xdg respecting apps
+  xdg.mimeApps = {
+    enable = true;
+
+    defaultApplications = {
+      # Web related mime types
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+
+      # Use firefox as my pdf viewer
+      "application/pdf" = "firefox.desktop";
+
+      # Email related mime types
+      "x-scheme-handler/mailto"="thunderbird.desktop";
+      "message/rfc822"="thunderbird.desktop";
+      "x-scheme-handler/mid"="thunderbird.desktop";
     };
   };
 
