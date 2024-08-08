@@ -27,8 +27,9 @@
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 (key-chord-define evil-replace-state-map "jk" 'evil-normal-state)
 
-(key-chord-define evil-normal-state-map "]d" 'git-gutter:next-hunk)
-(key-chord-define evil-normal-state-map "[d" 'git-gutter:previous-hunk)
+; ]d and [d to jump between changed hunks
+(evil-define-key 'normal 'global (kbd "]d") 'git-gutter:next-hunk)
+(evil-define-key 'normal 'global (kbd "[d") 'git-gutter:previous-hunk)
 
 
 ; Disable the bell for certain commands
