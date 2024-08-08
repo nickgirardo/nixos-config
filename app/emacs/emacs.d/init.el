@@ -29,3 +29,26 @@
 
 (key-chord-define evil-normal-state-map "]d" 'git-gutter:next-hunk)
 (key-chord-define evil-normal-state-map "[d" 'git-gutter:previous-hunk)
+
+
+; Disable the bell for certain commands
+(defun my-bell-function ()
+    (unless (memq this-command '(
+		    isearch-abort
+		    isearch-printing-char
+		    abort-recursive-edit
+		    exit-minibuffer
+		    abort-minibuffers
+		    keyboard-quit
+		    mwheel-scroll
+		    down
+		    up
+		    next-line
+		    previous-line
+		    backward-char
+		    evil-backward-char
+		    forward-char
+		    evil-forward-char))
+	(ding)))
+
+(setq ring-bell-function 'my-bell-function)
