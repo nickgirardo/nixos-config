@@ -1,6 +1,12 @@
+; Load customize configurations
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (when (file-exists-p custom-file)
   (load custom-file))
+
+; Ignore case when searching for files/ buffers
+(setq completion-ignore-case t
+      read-file-name-completion-ignore-case t
+      read-buffer-completion-ignore-case t)
 
 (global-display-line-numbers-mode 1)
 (global-git-gutter-mode 1)
