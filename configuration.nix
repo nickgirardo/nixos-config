@@ -127,8 +127,14 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
+
+    # man pages
+    man-pages
+    man-pages-posix
   ];
 
+
+  documentation.dev.enable = true;
 
   programs.bash.promptInit = ''PS1="\\$ "'';
 
