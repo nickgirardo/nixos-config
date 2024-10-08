@@ -133,6 +133,7 @@
     man-pages-posix
   ];
 
+  environment.wordlist.enable = true;
 
   documentation.dev.enable = true;
 
