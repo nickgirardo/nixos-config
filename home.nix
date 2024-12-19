@@ -77,12 +77,16 @@
   programs.bash = {
     enable = true;
     shellAliases = {
+      # common typo
+      "sl" = "ls";
       # git aliases
       "gs" = "git status";
       "gd" = "git diff -D";
       "gds" = "git diff -D --staged";
       "gdl" = "git diff HEAD~ HEAD";
       "gl" = "git -c color.ui=always log --oneline | head -20";
+
+      "open" = "xdg-open";
       "swinix" = "sudo nixos-rebuild switch --flake .";
     };
   };
