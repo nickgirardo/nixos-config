@@ -70,6 +70,11 @@
     totem
   ]);
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 8080 ];
+  };
+
   # Configure keymap in X11
   # This isn't used once gnome is completely set up
   # For that check app/gnome_dconf.nix
