@@ -59,3 +59,7 @@
 	(ding)))
 
 (setq ring-bell-function 'my-bell-function)
+
+(setq-default indent-tabs-mode nil)
+(setq-default typescript-indent-level 2)
+(setq-default js-indent-level 2)
