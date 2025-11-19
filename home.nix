@@ -45,6 +45,9 @@
     pkgs.htop
 
     pkgs.simple-http-server
+
+    pkgs.handbrake
+    pkgs.makemkv
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
