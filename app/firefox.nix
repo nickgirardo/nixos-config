@@ -9,13 +9,13 @@
     profiles.nick = {
       isDefault = true;
       bookmarks = { };
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         ublock-origin
         privacy-badger
       ];
       search = {
-        default = "DuckDuckGo";
-        privateDefault = "DuckDuckGo";
+        default = "ddg";
+        privateDefault = "ddg";
         force = true;
       };
       settings = {
