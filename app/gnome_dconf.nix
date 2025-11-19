@@ -8,7 +8,7 @@
   dconf.settings = {
     # Allow over-amplification
     # My laptop speakers are kinda weak so this is often necessary
-    "org/gnome/desktop" ={
+    "org/gnome/desktop" = {
       allow-volume-above-100-percent = true;
     };
 
