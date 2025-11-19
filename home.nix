@@ -90,7 +90,6 @@
       "gl" = "git -c color.ui=always log --oneline | head -20";
 
       "open" = "xdg-open";
-      "swinix" = "sudo nixos-rebuild switch --flake .";
     };
   };
 

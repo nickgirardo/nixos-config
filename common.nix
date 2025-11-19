@@ -7,9 +7,6 @@
 {
   imports =
     [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-
       # Include home manager is a nixos module (managed by nixos-rebuild)
       inputs.home-manager.nixosModules.home-manager
     ];
@@ -106,7 +103,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -177,16 +174,17 @@
   #   enableSSHSupport = true;
   # };
 
-  services.flatpak.enable = true;
-  systemd.services.flatpak-repo = {
-    description = "Add flatpak remotes";
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-      flatpak remote-add --if-not-exists JagexLauncher https://jagexlauncher.flatpak.mcswain.dev/JagexLauncher.flatpakrepo
-    '';
-  };
+  # services.flatpak.enable = true;
+  # systemd.services.flatpak-repo = {
+    # description = "Add flatpak remotes";
+    # wantedBy = [ "multi-user.target" ];
+    # path = [ pkgs.flatpak ];
+    # script = ''
+      # flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+      # flatpak remote-add --if-not-exists JagexLauncher https://jagexlauncher.flatpak.mcswain.dev/JagexLauncher.flatpakrepo
+    # '';
+  # };
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
@@ -197,14 +195,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
 
   nix.settings.experimental-features = [
     "nix-command"
