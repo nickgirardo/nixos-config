@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 {
   nixpkgs.overlays = [
-    inputs.nur.overlay
+    inputs.nur.overlays.default
   ];
   # Maybe use browserpass?  Seems like it would be nice for this sort of setup
   programs.firefox = {

@@ -39,18 +39,15 @@
     pkgs.discord
 
     pkgs.slack
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    pkgs.awscli2
+
+    pkgs.htop
+
+    pkgs.simple-http-server
+
+    pkgs.handbrake
+    pkgs.makemkv
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -83,12 +80,16 @@
   programs.bash = {
     enable = true;
     shellAliases = {
+      # common typo
+      "sl" = "ls";
       # git aliases
       "gs" = "git status";
       "gd" = "git diff -D";
       "gds" = "git diff -D --staged";
       "gdl" = "git diff HEAD~ HEAD";
       "gl" = "git -c color.ui=always log --oneline | head -20";
+
+      "open" = "xdg-open";
       "swinix" = "sudo nixos-rebuild switch --flake .";
     };
   };

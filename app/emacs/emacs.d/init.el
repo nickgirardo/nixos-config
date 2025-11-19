@@ -1,6 +1,12 @@
+; Load customize configurations
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (when (file-exists-p custom-file)
   (load custom-file))
+
+; Ignore case when searching for files/ buffers
+(setq completion-ignore-case t
+      read-file-name-completion-ignore-case t
+      read-buffer-completion-ignore-case t)
 
 (global-display-line-numbers-mode 1)
 (global-git-gutter-mode 1)
@@ -27,5 +33,33 @@
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 (key-chord-define evil-replace-state-map "jk" 'evil-normal-state)
 
-(key-chord-define evil-normal-state-map "]d" 'git-gutter:next-hunk)
-(key-chord-define evil-normal-state-map "[d" 'git-gutter:previous-hunk)
+; ]d and [d to jump between changed hunks
+(evil-define-key 'normal 'global (kbd "]d") 'git-gutter:next-hunk)
+(evil-define-key 'normal 'global (kbd "[d") 'git-gutter:previous-hunk)
+
+
+; Disable the bell for certain commands
+(defun my-bell-function ()
+    (unless (memq this-command '(
+		    isearch-abort
+		    isearch-printing-char
+		    abort-recursive-edit
+		    exit-minibuffer
+		    abort-minibuffers
+		    keyboard-quit
+		    mwheel-scroll
+		    down
+		    up
+		    next-line
+		    previous-line
+		    backward-char
+		    evil-backward-char
+		    forward-char
+		    evil-forward-char))
+	(ding)))
+
+(setq ring-bell-function 'my-bell-function)
+
+(setq-default indent-tabs-mode nil)
+(setq-default typescript-indent-level 2)
+(setq-default js-indent-level 2)
