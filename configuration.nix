@@ -177,6 +177,16 @@
   #   enableSSHSupport = true;
   # };
 
+  services.flatpak.enable = true;
+  systemd.services.flatpak-repo = {
+    description = "Add flatpak remotes";
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+      flatpak remote-add --if-not-exists JagexLauncher https://jagexlauncher.flatpak.mcswain.dev/JagexLauncher.flatpakrepo
+    '';
+  };
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
