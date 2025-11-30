@@ -34,6 +34,16 @@
           ./hosts/thinkpad/default.nix
         ];
       };
+
+      frameworkDesktop = lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./common.nix
+          ./hosts/framework-desktop/default.nix
+        ];
+      };
+
     };
   };
 }
