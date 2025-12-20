@@ -149,6 +149,7 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
+    git-lfs
 
     # man pages
     man-pages
