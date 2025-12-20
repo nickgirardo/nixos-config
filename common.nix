@@ -152,6 +152,8 @@
     wget
     git-lfs
 
+    tree
+
     # man pages
     man-pages
     man-pages-posix
