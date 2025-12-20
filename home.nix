@@ -84,6 +84,7 @@
       "sl" = "ls";
       # git aliases
       "gs" = "git status";
+      "gap" = "git add -p";
       "gd" = "git diff -D";
       "gds" = "git diff -D --staged";
       "gdl" = "git diff HEAD~ HEAD";
