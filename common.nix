@@ -66,10 +66,10 @@
     };
   };
 
-  services.logind.extraConfig = ''
+  services.logind.settings.Login = {
     # Don't allow programs to prevent suspend on lid close
-    LidSwitchIgnoreInhibited=yes
-  '';
+    LidSwitchIgnoreInhibited = "yes";
+  };
 
   programs.gnome-disks.enable = true;
 
