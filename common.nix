@@ -51,8 +51,8 @@
   services.libinput.mouse.naturalScrolling = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Disable automatic power managment on my bluetooth adaptor (it's broken)
   # TODO this is a device specific change
@@ -132,8 +132,7 @@
   users.users.nick = {
     isNormalUser = true;
     description = "Nick";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "storage" "render
-" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" "storage" "render" ];
     hashedPassword = "$y$j9T$GHYOqfKwIO6pQ3YE9ystK.$KRk/16.oJ5St/ZG8omYseq5k2zgkUo4EqVwjxdW4c02";
     packages = with pkgs; [
     #  thunderbird
