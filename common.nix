@@ -128,6 +128,9 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
+  # Enable xone (xbox one controller drivers)
+  hardware.xone.enable = true;
+
   # Define a user account
   users.users.nick = {
     isNormalUser = true;
