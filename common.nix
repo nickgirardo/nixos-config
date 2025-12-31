@@ -109,6 +109,9 @@
   # Enable bluetooth support
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth.input.General = {
+    ClassicBondedOnly = false;
+  };
   services.blueman.enable = true;
 
   # Services for usb devices
