@@ -11,6 +11,8 @@
       ./hardware-configuration.nix
     ];
 
+  # Set hostname
+  networking.hostName = "bellshrimp";
 
   # Disable automatic power managment on my bluetooth adaptor (it's broken)
   systemd.services.disable-bt-autosuspend = {

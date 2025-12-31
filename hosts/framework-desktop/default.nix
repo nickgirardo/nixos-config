@@ -11,6 +11,9 @@
       ./hardware-configuration.nix
     ];
 
+  # Set hostname
+  networking.hostName = "bellsquid";
+
   # Use latest available kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
