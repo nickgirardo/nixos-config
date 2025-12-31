@@ -14,6 +14,19 @@
   # Use latest available kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # Enable SSH
+  services.openssh = {
+    enable = true;
+    ports = [ 7022 ];
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+      AllowUsers = [ "nick" ];
+    };
+  };
+  services.fail2ban.enable = true;
+
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
 
