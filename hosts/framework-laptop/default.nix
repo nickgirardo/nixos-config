@@ -14,6 +14,9 @@
   # Set hostname
   networking.hostName = "bellshrimp";
 
+  # Use latest available kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Disable automatic power managment on my bluetooth adaptor (it's broken)
   systemd.services.disable-bt-autosuspend = {
     description = "Disable autosuspend for Intel Bluetooth USB device";
