@@ -11,6 +11,18 @@
       ./hardware-configuration.nix
     ];
 
+
+  # Disable automatic power managment on my bluetooth adaptor (it's broken)
+  systemd.services.disable-bt-autosuspend = {
+    description = "Disable autosuspend for Intel Bluetooth USB device";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "/run/current-system/sw/bin/bash -c 'for dev in /sys/bus/usb/devices/*; do if [[ -f \"$dev/idVendor\" && -f \"$dev/idProduct\" ]]; then if [[ $(cat $dev/idVendor) == \"8087\" && $(cat $dev/idProduct) == \"0032\" ]]; then echo on > $dev/power/control; fi; fi; done'";
+    };
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

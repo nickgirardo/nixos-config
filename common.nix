@@ -54,18 +54,6 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
-  # Disable automatic power managment on my bluetooth adaptor (it's broken)
-  # TODO this is a device specific change
-  systemd.services.disable-bt-autosuspend = {
-    description = "Disable autosuspend for Intel Bluetooth USB device";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "/run/current-system/sw/bin/bash -c 'for dev in /sys/bus/usb/devices/*; do if [[ -f \"$dev/idVendor\" && -f \"$dev/idProduct\" ]]; then if [[ $(cat $dev/idVendor) == \"8087\" && $(cat $dev/idProduct) == \"0032\" ]]; then echo on > $dev/power/control; fi; fi; done'";
-    };
-  };
-
   services.logind.settings.Login = {
     # Don't allow programs to prevent suspend on lid close
     LidSwitchIgnoreInhibited = "yes";
