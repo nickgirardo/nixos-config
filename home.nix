@@ -50,6 +50,9 @@
     pkgs.makemkv
 
     pkgs.gimp
+
+    # Clipboard functionality in term via `wl-copy` and `wl-paste`
+    pkgs.wl-clipboard
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
