@@ -51,6 +51,8 @@
 
     pkgs.gimp
 
+    pkgs.libreoffice
+
     # Clipboard functionality in term via `wl-copy` and `wl-paste`
     pkgs.wl-clipboard
   ];
