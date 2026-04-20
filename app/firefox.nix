@@ -46,8 +46,8 @@
 
         "extensions.pocket.enabled" = false;
 
-        # WebGPU isn't supported on linux... but when it is I'll be ready!
-        "dom.webgpu.enabled" = true;
+        # Disable WebGPU for now, causing issues :/
+        "dom.webgpu.enabled" = false;
         "dom.webgpu.indirect-dispatch.enabled" = true;
 
         # Enable middlemouse click for scroll
