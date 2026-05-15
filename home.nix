@@ -43,6 +43,7 @@
     pkgs.awscli2
 
     pkgs.htop
+    pkgs.jq
 
     pkgs.simple-http-server
 
