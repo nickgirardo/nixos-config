@@ -54,6 +54,8 @@
 
     pkgs.libreoffice
 
+    pkgs.opencode
+
     # Clipboard functionality in term via `wl-copy` and `wl-paste`
     pkgs.wl-clipboard
   ];
