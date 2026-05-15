@@ -6,6 +6,11 @@
   # Maybe use browserpass?  Seems like it would be nice for this sort of setup
   programs.firefox = {
     enable = true;
+
+    # Explicitly maintaining legacy behavior
+    # TODO switch to an XDG based path like `$XDG_CONFIG_HOME/mozilla/firefox`
+    configPath = ".mozilla/firefox";
+
     profiles.nick = {
       isDefault = true;
       bookmarks = { };
