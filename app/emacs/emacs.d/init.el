@@ -1,3 +1,5 @@
+;;; init.el --- Emacs configuration -*- lexical-binding: t; -*-
+
 ; Load customize configurations
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (when (file-exists-p custom-file)

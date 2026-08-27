@@ -1,3 +1,5 @@
+;;; custom.el --- Customization settings -*- lexical-binding: t; -*-
+
 (custom-set-variables
   '(menu-bar-mode nil)
   '(tool-bar-mode nil)

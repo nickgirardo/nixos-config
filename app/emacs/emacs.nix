@@ -6,7 +6,7 @@
   };
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs;
+    package = pkgs.emacs31;
 
     extraPackages = epkgs: [
       epkgs.evil
