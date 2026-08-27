@@ -21,7 +21,23 @@
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying t)
 
+; Vertico and Marginalia - Minibuffer configuration
+(setq vertico-cycle t)
+(vertico-mode 1)
+(marginalia-mode 1)
+
 (evil-mode 1)
+
+; Evil mode is overriding the RET behavior in xref--xref-buffer-mode
+(with-eval-after-load 'xref
+  ; Close the xref window after making a selection
+  (let ((visit-and-close-window
+         (lambda ()
+           (interactive)
+           (xref-goto-xref t))))
+    (evil-define-key 'motion xref--xref-buffer-mode-map
+      (kbd "RET") visit-and-close-window
+      (kbd "<return>") visit-and-close-window)))
 
 ; Use undo tree for undo history
 (setq undo-tree-auto-save-history nil)

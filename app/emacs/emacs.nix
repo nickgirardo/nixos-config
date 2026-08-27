@@ -15,6 +15,8 @@
       epkgs.key-chord
       epkgs.git-gutter
       epkgs.typescript-mode
+      epkgs.vertico
+      epkgs.marginalia
     ];
   };
 }
