@@ -5,6 +5,10 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+; Automatically clear trailing whitespace when saving buffers
+(add-hook 'prog-mode-hook #'delete-trailing-whitespace-mode)
+(add-hook 'text-mode-hook #'delete-trailing-whitespace-mode)
+
 ; Ignore case when searching for files/ buffers
 (setq completion-ignore-case t
       read-file-name-completion-ignore-case t
