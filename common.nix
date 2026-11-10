@@ -124,9 +124,7 @@
     description = "Nick";
     extraGroups = [ "networkmanager" "wheel" "dialout" "storage" "render" ];
     hashedPassword = "$y$j9T$GHYOqfKwIO6pQ3YE9ystK.$KRk/16.oJ5St/ZG8omYseq5k2zgkUo4EqVwjxdW4c02";
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    packages = [];
   };
 
   home-manager = {
