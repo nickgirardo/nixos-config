@@ -18,6 +18,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Allow emulation of arm binaries
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+  # Virtualization: expand memory allocation from default 1GiB to 8GiB
+  # This is essentially necessary for emulating a grapical system
+  virtualisation.vmVariant.virtualisation.memorySize = 8192;
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
