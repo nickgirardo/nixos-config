@@ -60,7 +60,6 @@
 
   # Gnome baloney I don't want to install
   environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
     gnome-tour
     gnome-music
     gnome-characters
