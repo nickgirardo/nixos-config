@@ -27,37 +27,43 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # # I'm keeping this around as a quick sanity check that home.nix is active
-    pkgs.hello
-
+    # Mail client
     pkgs.thunderbird
 
+    # Alternative web browser, mostly used for testing sites
+    # TODO swap for ungoogled-chromium
     pkgs.chromium
 
+    # Chat application/ spyware
     pkgs.discord
 
+    # Work chat application
     pkgs.slack
 
-    pkgs.awscli2
-
-    pkgs.htop
-    pkgs.jq
-
-    pkgs.simple-http-server
-
-    pkgs.handbrake
-    pkgs.makemkv
-
+    # Image editing software
     pkgs.gimp
 
+    # Office suite
     pkgs.libreoffice
 
+    # Manage AI models
     pkgs.opencode
+
+    #
+    # Command line utilities
+    #
 
     # Clipboard functionality in term via `wl-copy` and `wl-paste`
     pkgs.wl-clipboard
+
+    # Performance monitor
+    pkgs.htop
+
+    # JSON manipulation
+    pkgs.jq
+
+    # Expose a directory as a static server
+    pkgs.simple-http-server
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
