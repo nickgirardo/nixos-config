@@ -30,6 +30,9 @@
   };
   services.fail2ban.enable = true;
 
+  # Enable podman
+  my.podman.enable = true;
+
   # Disable suspend/ hibernate
   systemd.sleep.settings.Sleep = {
     AllowSuspend = "no";

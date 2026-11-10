@@ -9,6 +9,8 @@
     [
       # Include home manager is a nixos module (managed by nixos-rebuild)
       inputs.home-manager.nixosModules.home-manager
+      # Modules
+      ./modules/podman.nix
     ];
 
   # Allow unfree packages
